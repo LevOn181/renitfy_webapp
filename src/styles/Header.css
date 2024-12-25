@@ -18,22 +18,37 @@
   display: flex;
   flex-wrap: inherit;
   margin: auto;
+  width: 1200px;
 }
 
 .logo {
   position: relative;
-  left: -80px;
   font-size: 24px;
   margin-left: 10px;
   font-weight: bold;
   color: #007bff;
 }
 
+.nav-div{
+  justify-content: flex-end;
+  gap: 15px;
+}
+
+.logo-div{
+  justify-content: flex-start;
+}
+
+.logo-div, .nav-div {
+  display: flex;
+  width: 50%;
+  padding: 0px 20px 0px 20px;
+}
+
 /* Close button in the sidebar */
 .close-btn {
+  margin: 0px;
+  padding: 0px;
   align-self: flex-end; /* Align the close button to the top-right */
-  top: 10px;
-  right: 10px;
   background: none;
   border: none;
   font-size: 20px;
@@ -48,19 +63,20 @@
 }
 
 /* Sidebar styling */
-.nav-links {
+.sidebar {
   display: flex;
   gap: 15px;
 }
 
-.nav-links a {
+.sidebar a {
   margin: 0 10px;
   font-size: 16px;
+  white-space: nowrap;
   text-decoration: none;
   color: #333;
 }
 
-.nav-links a:hover {
+.sidebar a:hover {
   color: #0056b3;
 }
 
@@ -75,57 +91,44 @@
 }
 
 /* Sidebar for smaller screens */
-.nav-links.active {
+.sidebar{
   display: flex;
   flex-direction: column; /* Align items vertically */
   align-items: flex-start; /* Align items to the left */
   position: fixed;
   top: 0;
-  left: 0; /* Sidebar on the left */
+  left: -240px;
   height: 100%;
-  width: 250px;
+  width: 200px;
   background-color: #fff;
   box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
   padding: 20px;
   gap: 15px; /* Space between items */
   z-index: 1001;
-  overflow-y: auto; /* Handle long content */
-}
-
-/* Add margin between close button and navigation items */
-.nav-links.active .close-btn {
-  margin: 0px;
-  padding: 0px
-}
-
-.sidebar-overlay {
-  display: none;
-  left: 0;
-}
-
-.sidebar-overlay.show {
-  display: block;
-  position: fixed;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
-  z-index: 1000;
+  transition: 0.3s ease-in-out;
+  overflow-y: hidden; /* Handle long content */
 }
 
 /* Responsive adjustments for smaller screens */
 @media (max-width: 768px) {
-  .nav-links {
-    display: none; /* Hide the links by default */
+  .nav-div{
+    display: none;
   }
-
-  .nav-links.active {
+  
+  .sidebar.active {
     display: flex; /* Sidebar active styles remain */
+    left: 0px;
   }
 
   .hamburger {
     display: inline; /* Show the hamburger icon */
+    position: absolute;
+  }
+
+  .logo-div{
+    width: 100%;
+    justify-content: center;
+    padding: 0%;
   }
 
   .header {
@@ -133,7 +136,9 @@
   }
 
   .headerBar {
+    display: inline;
     flex-wrap: nowrap;
     justify-content: space-between;
   }
 }
+

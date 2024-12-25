@@ -36,15 +36,20 @@ const Header = () => {
         ☰
       </button>
       <div className="headerBar">
-        <a href="http://localhost:8000">
-          <h1 className="logo">Rentify</h1>
-        </a>
-        <nav className={`nav-links ${sidebarOpen ? "active" : ""}`}>
-          {sidebarOpen && (
-            <button className="close-btn" onClick={toggleSidebar}>
-              ✕
-            </button>
-          )}
+        <div className="logo-div">
+          <a href="http://localhost:8000">
+            <h1 className="logo">Rentify</h1>
+          </a>
+        </div>
+        <div className="nav-div">
+          <a href="/login">Log In</a>
+          <a href="/register">Register</a>
+          <a href="/advertise">Advertise</a>
+        </div>
+        <nav className={`sidebar ${sidebarOpen ? "active" : ""}`}>
+          <button className="close-btn" onClick={toggleSidebar}>
+            ✕
+          </button>
           <a href="/login">Log In</a>
           <a href="/register">Register</a>
           <a href="/advertise">Advertise</a>
