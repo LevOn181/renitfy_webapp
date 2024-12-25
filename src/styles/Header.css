@@ -1,36 +1,139 @@
-/* Header.css */
+/* Base header styling */
 .header {
+  position: sticky;
+  top: 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  padding: 5px 20px 5px 20px;
-  margin: 0px 0px 10px 0px;
+  padding: 5px 20px;
+  margin: 0 0 10px 0;
   background-color: #fff;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+}
+
+.headerBar {
+  align-items: center;
+  display: flex;
+  flex-wrap: inherit;
+  margin: auto;
 }
 
 .logo {
+  position: relative;
+  left: -80px;
   font-size: 24px;
   margin-left: 10px;
   font-weight: bold;
   color: #007bff;
 }
 
+/* Close button in the sidebar */
+.close-btn {
+  align-self: flex-end; /* Align the close button to the top-right */
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  font-size: 20px;
+  font-weight: bold;
+  cursor: pointer;
+  color: #333;
+}
+
+
+.close-btn:hover {
+  color: #007bff;
+}
+
+/* Sidebar styling */
+.nav-links {
+  display: flex;
+  gap: 15px;
+}
+
 .nav-links a {
   margin: 0 10px;
   font-size: 16px;
+  text-decoration: none;
+  color: #333;
 }
 
 .nav-links a:hover {
   color: #0056b3;
 }
 
-/* Responsive adjustments for smaller screens */
-@media (max-width: 768px) {
-  .header {
-    flex-direction: column;
-    text-align: center;
-  }
+/* Hamburger menu (hidden by default) */
+.hamburger {
+  display: none; /* Only visible on smaller screens */
+  font-size: 24px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #333;
 }
 
+/* Sidebar for smaller screens */
+.nav-links.active {
+  display: flex;
+  flex-direction: column; /* Align items vertically */
+  align-items: flex-start; /* Align items to the left */
+  position: fixed;
+  top: 0;
+  left: 0; /* Sidebar on the left */
+  height: 100%;
+  width: 250px;
+  background-color: #fff;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
+  padding: 20px;
+  gap: 15px; /* Space between items */
+  z-index: 1001;
+  overflow-y: auto; /* Handle long content */
+}
+
+/* Add margin between close button and navigation items */
+.nav-links.active .close-btn {
+  margin: 0px;
+  padding: 0px
+}
+
+.sidebar-overlay {
+  display: none;
+  left: 0;
+}
+
+.sidebar-overlay.show {
+  display: block;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 768px) {
+  .nav-links {
+    display: none; /* Hide the links by default */
+  }
+
+  .nav-links.active {
+    display: flex; /* Sidebar active styles remain */
+  }
+
+  .hamburger {
+    display: inline; /* Show the hamburger icon */
+  }
+
+  .header {
+    flex-direction: row; /* Ensures header layout consistency */
+  }
+
+  .headerBar {
+    flex-wrap: nowrap;
+    justify-content: space-between;
+  }
+}

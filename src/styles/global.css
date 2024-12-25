@@ -22,23 +22,3 @@ a:hover {
   padding: 0 15px;
 }
 
-
-/* Responsive adjustments for smaller screens */
-@media (max-width: 768px) {
-  .header {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  .nav-links a {
-    margin: 10px 0;
-  }
-
-  .search-bar {
-    flex-direction: column;
-  }
-
-  .apartment-card {
-    flex: 1 1 100%;
-  }
-}
