@@ -1,0 +1,84 @@
+/* Updated SearchBar.css */
+.search-bar {
+  display: flex;
+  align-items: center; /* Vertically aligns the items */
+  justify-content: space-between; /* Adds space between search groups */
+  flex-wrap: nowrap; /* Ensures the items stay in one line */
+  gap: 15px;
+  padding: 10px 20px;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin: 20px 0;
+  overflow-x: auto; /* Enables scrolling if content overflows */
+}
+
+.search-group {
+  display: flex;
+  align-items: center; /* Vertically aligns label and input */
+  gap: 10px; /* Adds space between label and input */
+}
+
+.search-group label {
+  font-weight: bold;
+  white-space: nowrap; /* Prevents labels from breaking into a new line */
+}
+
+.search-group input,
+.search-group select {
+  padding: 8px 10px;
+  font-size: 14px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.advanced-search button {
+  padding: 8px 12px;
+  background-color: #f0f0f0;
+  border: 1px solid #ddd;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.advanced-search button:hover {
+  background-color: #e0e0e0;
+}
+
+.search-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+}
+
+.search-btn:hover {
+  background-color: #0056b3;
+}
+
+.search-btn svg {
+  font-size: 18px; /* Adjust the magnifier icon size */
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 768px) {
+  .search-bar {
+    flex-wrap: wrap; /* Items stack on smaller screens */
+    justify-content: center;
+  }
+
+  .search-group {
+    flex: 1 1 100%;
+    justify-content: space-between;
+  }
+
+  .search-btn {
+    margin-top: 10px; /* Adds spacing if it wraps to the next line */
+  }
+}
